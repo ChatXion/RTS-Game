@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameManager: SingletonManager<GameManager>
 {
     public Unit ActiveUnit; //Selected Active unit, calls upon the Unit.cs we created
+    public bool HasActiveUnit => ActiveUnit != null; //HasActiveUnit will be true if Activeunit does not equal null
     private Vector2 m_InitialTouchPosition;
     void Update()
     {
@@ -32,17 +33,45 @@ public class GameManager: SingletonManager<GameManager>
 
     void DetectClick(Vector2 inputPosition){
         Vector2 worldPoint = Camera.main.ScreenToWorldPoint(inputPosition);
+        //Click on unit, interact with game object, need add collider on unit for it to work
+        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero); 
+        if(HasClickedOnUnit(hit, out var unit)){
+            HandleClickedOnUnit(unit);
+        }
+        else{
+            HandleClickOnGround(worldPoint);
+        }
         HandleClickOnGround(worldPoint);
     }
 
+    bool HasClickedOnUnit(RaycastHit2D hit, out Unit unit){
+        if(hit.collider != null && hit.collider.TryGetComponent<Unit>(out var clickedUnit)){
+            unit = clickedUnit;
+            return true;
+        }
+        unit = null;
+        return false;
+    }
     //Where ever you click on world point activate unit will move there
     void HandleClickOnGround(Vector2 worldPoint){
-        if (ActiveUnit == null) {
-            Debug.LogError("ActiveUnit is null!");
-            return;
+        if (ActiveUnit != null){
+            ActiveUnit.MoveTo(worldPoint);
         }
-        //Debug.Log("Moving ActiveUnit to: " + worldPoint);
-        ActiveUnit.MoveTo(worldPoint);
+    }
+
+    void HandleClickedOnUnit(Unit unit){
+        SelectNewUnit(unit);
+    }
+
+    void SelectNewUnit(Unit unit){
+        //if active unit already select, unhighlight it and deselect it
+        if(HasActiveUnit){ 
+            ActiveUnit.DeSelect(); 
+        }
+
+        ActiveUnit = unit;
+        Debug.Log(ActiveUnit.name + " Selected");
+        ActiveUnit.Select();
     }
     public void Test(){
 

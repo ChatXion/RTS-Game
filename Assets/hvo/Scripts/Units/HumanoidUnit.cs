@@ -6,7 +6,10 @@ public class HumanoidUnit: Unit{
     protected UnityEngine.Vector3 m_LastPosition;
 
     public float CurrentSpeed => m_Velocity.magnitude;
-
+    void Start() //fixes position lag
+    {
+        m_LastPosition = transform.position;
+    }
     protected void Update()
     {
         //code block checks to see if unit is moving, basically compare current pos

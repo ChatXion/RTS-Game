@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public class AIPawn : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class AIPawn : MonoBehaviour
         m_Destination = destination;
     }
 
-
-
+    public static implicit operator Animator(AIPawn v)
+    {
+        throw new NotImplementedException();
+    }
 }
