@@ -2,4 +2,4 @@
  
 Unity Tutorial Course, from Udemy
 
-Scripts are in HVO folder
+Code are in \Assets\HVO\Scripts folder
