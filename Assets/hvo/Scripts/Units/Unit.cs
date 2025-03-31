@@ -1,6 +1,7 @@
 //Units, Humanoid, Enemy, Structures, 
 using UnityEngine;
 public abstract class Unit: MonoBehaviour{
+    [SerializeField] private ActionSO[] m_Actions;
 
     public bool IsMoving;
     public bool IsTargeted;
@@ -9,6 +10,8 @@ public abstract class Unit: MonoBehaviour{
     protected SpriteRenderer m_SpriteRenderer;
     protected Material m_OriginalMaterial;
     protected Material m_HighlightMaterial;
+
+    public ActionSO[] Actions => m_Actions;
     protected void Awake()
     {
         m_Animator = GetComponent<Animator>();

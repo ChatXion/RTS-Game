@@ -108,7 +108,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -173,10 +173,10 @@ TextureImporter:
       name: TNT_Purple_0
       rect:
         serializedVersion: 2
-        x: 57
-        y: 440
-        width: 88
-        height: 70
+        x: 58
+        y: 441
+        width: 86
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,10 +195,10 @@ TextureImporter:
       name: TNT_Purple_1
       rect:
         serializedVersion: 2
-        x: 250
-        y: 440
-        width: 85
-        height: 70
+        x: 251
+        y: 441
+        width: 83
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,10 +217,10 @@ TextureImporter:
       name: TNT_Purple_2
       rect:
         serializedVersion: 2
-        x: 443
-        y: 440
-        width: 85
-        height: 70
+        x: 444
+        y: 441
+        width: 83
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +239,10 @@ TextureImporter:
       name: TNT_Purple_3
       rect:
         serializedVersion: 2
-        x: 634
-        y: 440
-        width: 88
-        height: 68
+        x: 635
+        y: 441
+        width: 86
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,10 +261,10 @@ TextureImporter:
       name: TNT_Purple_4
       rect:
         serializedVersion: 2
-        x: 824
-        y: 440
-        width: 88
-        height: 67
+        x: 825
+        y: 441
+        width: 86
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,10 +283,10 @@ TextureImporter:
       name: TNT_Purple_5
       rect:
         serializedVersion: 2
-        x: 1016
-        y: 440
-        width: 84
-        height: 68
+        x: 1017
+        y: 441
+        width: 82
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,10 +305,10 @@ TextureImporter:
       name: TNT_Purple_6
       rect:
         serializedVersion: 2
-        x: 1099
-        y: 487
-        width: 6
-        height: 6
+        x: 1100
+        y: 488
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,10 +327,10 @@ TextureImporter:
       name: TNT_Purple_7
       rect:
         serializedVersion: 2
-        x: 59
-        y: 250
-        width: 82
-        height: 66
+        x: 60
+        y: 251
+        width: 80
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,10 +349,10 @@ TextureImporter:
       name: TNT_Purple_8
       rect:
         serializedVersion: 2
-        x: 252
-        y: 250
-        width: 82
-        height: 69
+        x: 253
+        y: 251
+        width: 80
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,10 +371,10 @@ TextureImporter:
       name: TNT_Purple_9
       rect:
         serializedVersion: 2
-        x: 443
-        y: 250
-        width: 85
-        height: 62
+        x: 444
+        y: 251
+        width: 83
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,10 +393,10 @@ TextureImporter:
       name: TNT_Purple_10
       rect:
         serializedVersion: 2
-        x: 633
-        y: 250
-        width: 87
-        height: 66
+        x: 634
+        y: 251
+        width: 85
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -415,10 +415,10 @@ TextureImporter:
       name: TNT_Purple_11
       rect:
         serializedVersion: 2
-        x: 824
-        y: 250
-        width: 84
-        height: 69
+        x: 825
+        y: 251
+        width: 82
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,10 +437,10 @@ TextureImporter:
       name: TNT_Purple_12
       rect:
         serializedVersion: 2
-        x: 1017
-        y: 250
-        width: 82
-        height: 62
+        x: 1018
+        y: 251
+        width: 80
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -459,10 +459,10 @@ TextureImporter:
       name: TNT_Purple_13
       rect:
         serializedVersion: 2
-        x: 54
-        y: 56
-        width: 79
-        height: 74
+        x: 55
+        y: 57
+        width: 77
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -481,10 +481,10 @@ TextureImporter:
       name: TNT_Purple_14
       rect:
         serializedVersion: 2
-        x: 242
-        y: 56
-        width: 78
-        height: 77
+        x: 243
+        y: 57
+        width: 76
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -503,10 +503,10 @@ TextureImporter:
       name: TNT_Purple_15
       rect:
         serializedVersion: 2
-        x: 439
-        y: 56
-        width: 77
-        height: 62
+        x: 440
+        y: 57
+        width: 75
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -525,10 +525,10 @@ TextureImporter:
       name: TNT_Purple_16
       rect:
         serializedVersion: 2
-        x: 633
-        y: 56
-        width: 76
-        height: 65
+        x: 634
+        y: 57
+        width: 74
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -547,10 +547,10 @@ TextureImporter:
       name: TNT_Purple_17
       rect:
         serializedVersion: 2
-        x: 824
-        y: 56
-        width: 75
-        height: 70
+        x: 825
+        y: 57
+        width: 73
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -569,10 +569,10 @@ TextureImporter:
       name: TNT_Purple_18
       rect:
         serializedVersion: 2
-        x: 1014
-        y: 56
-        width: 66
-        height: 83
+        x: 1015
+        y: 57
+        width: 64
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -591,10 +591,10 @@ TextureImporter:
       name: TNT_Purple_19
       rect:
         serializedVersion: 2
-        x: 1210
-        y: 56
-        width: 68
-        height: 74
+        x: 1211
+        y: 57
+        width: 66
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -613,7 +613,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 403e2af9c5d351142ba6932a1110a52c
     internalID: 0
     vertices: []
     indices: 
@@ -622,7 +622,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TNT_Purple_0: 2272326806082863785
+      TNT_Purple_1: 8442763851800837645
+      TNT_Purple_10: -3688204175246324344
+      TNT_Purple_11: -695571609631734428
+      TNT_Purple_12: -8013072183419656653
+      TNT_Purple_13: -8601153216086564882
+      TNT_Purple_14: 789716195841237662
+      TNT_Purple_15: 5075904528681374101
+      TNT_Purple_16: 1712233574537496869
+      TNT_Purple_17: 1389436389304967610
+      TNT_Purple_18: -8859585433952215538
+      TNT_Purple_19: 4509232332568973262
+      TNT_Purple_2: 7706131729204765975
+      TNT_Purple_3: -1619773477979350560
+      TNT_Purple_4: -6278177768651563014
+      TNT_Purple_5: -5108154062218082071
+      TNT_Purple_6: -4763544064708895905
+      TNT_Purple_7: 921504102844415446
+      TNT_Purple_8: -6639616793864583186
+      TNT_Purple_9: 3810428144131946723
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
