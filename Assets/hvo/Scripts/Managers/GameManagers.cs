@@ -1,12 +1,16 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Tilemaps;
 
 public class GameManager : SingletonManager<GameManager>
 {
+    [Header("TileMaps")]
+    [SerializeField] private Tilemap m_WalkableTilemap;
+    [SerializeField] private Tilemap m_OverlayTilemap;
+    [SerializeField] private Tilemap[] m_UnreachableTilemaps;
     [Header("UI")]
     [SerializeField] private PointToClick m_PointToClickPrefab;
     [SerializeField] private ActionBar m_ActionBar;
+    [SerializeField] private ConfirmationBar m_BuildConfirmationBar;
 
     public Unit ActiveUnit; //Selected Active unit, calls upon the Unit.cs we created
     public bool HasActiveUnit => ActiveUnit != null; //HasActiveUnit will be true if Activeunit does not equal null
@@ -20,9 +24,13 @@ public class GameManager : SingletonManager<GameManager>
     */
     public void StartBuildProcess(BuildActionSO buildAction)
     {
+        if(m_PlacementProcess != null) return;
         //Debug.Log("Starting Action: " + buildAction.ActionName);
-        m_PlacementProcess = new PlacementProcess(buildAction);
+        m_PlacementProcess = new PlacementProcess(buildAction, m_WalkableTilemap, m_OverlayTilemap,m_UnreachableTilemaps);
         m_PlacementProcess.ShowPlacementOutline();
+        m_BuildConfirmationBar.Show();
+        m_BuildConfirmationBar.SetupHooks(ConfirmBuildPlacement, CancelBuildPlacement);
+
     }
     void Start()
     {
@@ -170,6 +178,19 @@ public class GameManager : SingletonManager<GameManager>
     {
         m_ActionBar.ClearActions();
         m_ActionBar.Hide();
+    }
+
+    void ConfirmBuildPlacement(){
+        if (m_PlacementProcess.TryFinalizePlacement(out Vector3 buildPosition)){
+            m_BuildConfirmationBar.Hide();
+            m_PlacementProcess = null;
+            Debug.Log("Founddations layed out: " + buildPosition);
+        }
+    }
+    void CancelBuildPlacement(){
+        m_BuildConfirmationBar.Hide();
+        m_PlacementProcess.Cleanup();
+        m_PlacementProcess = null;
     }
     public void Test()
     {
