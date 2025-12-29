@@ -13,6 +13,11 @@ public class PlacementProcess{
     private Sprite m_PlaceholderTileSprite;
     private Color m_HighlightColor = new Color(0,0,2,.5f);
     private Color m_BlockedColor = new Color(1f,0,0,.8f);
+
+    public BuildActionSO BuildAction => m_BuildAction;
+
+    public int GoldCost => m_BuildAction.GoldCost;
+    public int woodCost => m_BuildAction.WoodCost;
   
     public PlacementProcess(BuildActionSO buildAction, Tilemap walkableTilemap, Tilemap overlayTilemap, Tilemap[] unreachableTilemaps){
         m_PlaceholderTileSprite = Resources.Load<Sprite>("Images/PlaceholderTileSprite"); //This code allows you to load resources from local directory

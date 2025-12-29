@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildActionSO : ActionSO
 {
 
-
+    [SerializeField] private StructureUnit m_StructurePrefab;
     [SerializeField] private Sprite m_PlacementSprite;
     [SerializeField] private Sprite m_FoundationSprite;
     [SerializeField] private Sprite m_CompletionSprite;
@@ -17,7 +17,10 @@ public class BuildActionSO : ActionSO
     /*
         All these fields can be assigned in the unity inspector, that's why its all blank here.
         the functions below are what you see in unity inspector
+
+        ex: build > humanoid unit (script) > double click buildTowerAction
     */
+    public StructureUnit StructurePrefab => m_StructurePrefab;
     public Sprite PlacementSprite => m_PlacementSprite;
     public Sprite FoundationSprite => m_FoundationSprite;
     public Sprite CompletionSprite => m_CompletionSprite;

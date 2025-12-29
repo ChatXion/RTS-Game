@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -16,6 +17,11 @@ public class GameManager : SingletonManager<GameManager>
     public bool HasActiveUnit => ActiveUnit != null; //HasActiveUnit will be true if Activeunit does not equal null
     
     private PlacementProcess m_PlacementProcess;
+    private int m_Gold = 1000;
+    private int m_Wood = 1000;
+
+    public int Gold => m_Gold;
+    public int Wood => m_Wood;
 
     /* Block of code moved to HVOUtils.cs 
     public Vector2 InputPosition => Input.touchCount > 0 ? Input.GetTouch(0).position : Input.mousePosition;
@@ -28,7 +34,7 @@ public class GameManager : SingletonManager<GameManager>
         //Debug.Log("Starting Action: " + buildAction.ActionName);
         m_PlacementProcess = new PlacementProcess(buildAction, m_WalkableTilemap, m_OverlayTilemap,m_UnreachableTilemaps);
         m_PlacementProcess.ShowPlacementOutline();
-        m_BuildConfirmationBar.Show();
+        m_BuildConfirmationBar.Show(buildAction.GoldCost, buildAction.WoodCost);
         m_BuildConfirmationBar.SetupHooks(ConfirmBuildPlacement, CancelBuildPlacement);
 
     }
@@ -181,12 +187,32 @@ public class GameManager : SingletonManager<GameManager>
     }
 
     void ConfirmBuildPlacement(){
-        if (m_PlacementProcess.TryFinalizePlacement(out Vector3 buildPosition)){
-            m_BuildConfirmationBar.Hide();
-            m_PlacementProcess = null;
-            Debug.Log("Founddations layed out: " + buildPosition);
+    
+        if (TryDeductResources(m_PlacementProcess.GoldCost,m_PlacementProcess.woodCost)){
+            if (m_PlacementProcess.TryFinalizePlacement(out Vector3 buildPosition)){
+                DeductGold(m_PlacementProcess.GoldCost);
+                DeductWood(m_PlacementProcess.woodCost);
+                m_BuildConfirmationBar.Hide();
+                new BuildingProcess(m_PlacementProcess.BuildAction, buildPosition);  //BUILDS TOWERS
+                ActiveUnit.MoveTo(buildPosition);
+                ActiveUnit.SetTask(UnitTask.Build);
+                m_PlacementProcess = null;
+                Debug.Log("Founddations layed out: " + buildPosition);
+            }
         }
+        else{
+            return; 
+        }
+
     }
+
+    /* useless
+    void RevertResources(int gold, int wood){
+        m_Gold += gold;
+        m_Wood += wood;
+    }
+    */
+
     void CancelBuildPlacement(){
         m_BuildConfirmationBar.Hide();
         m_PlacementProcess.Cleanup();
@@ -197,6 +223,32 @@ public class GameManager : SingletonManager<GameManager>
         Debug.Log("Button test");
     }
 
-    //Makes sure you don't point to UI or touch UI and make char move
+    bool TryDeductResources(int goldCost, int woodCost){
+        if(m_Gold >= goldCost && m_Wood >= woodCost){
+            return true;
+        }
+        Debug.Log("Not enough Resources");
+        return false;
+        
+    }
 
+    void DeductWood(int woodCost){
+        m_Wood -= woodCost;
+    }
+    void DeductGold(int goldCost){
+        m_Gold -= goldCost;
+    }
+
+    //Part of mono behaviors
+    void OnGUI()
+    {
+        GUI.Label(new Rect(100, 40, 200, 20), "Gold: " + m_Gold.ToString(), new GUIStyle { fontSize = 30 });
+        GUI.Label(new Rect(100, 80, 200, 20), "Wood: " + m_Wood.ToString(), new GUIStyle { fontSize = 30 });
+
+        if (ActiveUnit != null)
+        { 
+                    GUI.Label(new Rect(100, 120, 200, 20), "State: " + ActiveUnit.CurrentState.ToString(), new GUIStyle { fontSize = 30 });
+                    GUI.Label(new Rect(100, 160, 200, 20), "Task: " + ActiveUnit.CurrentTask.ToString(), new GUIStyle { fontSize = 30 });
+        }
+    }
 }
