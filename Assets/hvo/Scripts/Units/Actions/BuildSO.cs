@@ -6,6 +6,7 @@ public class BuildActionSO : ActionSO
 {
 
     [SerializeField] private StructureUnit m_StructurePrefab;
+    [SerializeField] private float m_ConstructionTime; //TIME IT TAKES TO BUILD THE STRUCTURE
     [SerializeField] private Sprite m_PlacementSprite;
     [SerializeField] private Sprite m_FoundationSprite;
     [SerializeField] private Sprite m_CompletionSprite;
@@ -21,6 +22,7 @@ public class BuildActionSO : ActionSO
         ex: build > humanoid unit (script) > double click buildTowerAction
     */
     public StructureUnit StructurePrefab => m_StructurePrefab;
+    public float ConstructionTime => m_ConstructionTime;
     public Sprite PlacementSprite => m_PlacementSprite;
     public Sprite FoundationSprite => m_FoundationSprite;
     public Sprite CompletionSprite => m_CompletionSprite;
